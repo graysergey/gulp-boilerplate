@@ -1,0 +1,19 @@
+{
+  "name": "gulp-boilerplate",
+  "version": "1.0.0",
+  "description": "gulp boilerplate",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "@htmlacademy/editorconfig-cli": "1.0.0",
+    "eslint": "5.12.0",
+    "eslint-config-htmlacademy": "0.5.2",
+    "stylelint": "9.9.0",
+    "stylelint-config-htmlacademy": "0.1.1"
+  },
+  "scripts": {
+    "test": "npm run editorconfig && npm run stylelint"
+  },
+  "author": "Regulyarniy Nikolay",
+  "license": "ISC"
+}
