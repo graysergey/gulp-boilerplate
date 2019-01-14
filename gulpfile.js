@@ -4,8 +4,20 @@ const {
   copy,
   generateSVG,
   generateWEBP,
-  minifyImages
+  minifyImages,
+  copyHtml,
+  generateCSS,
+  generateScripts
 } = require(`./gulp/index`);
 
 
-gulp.task(`build`, gulp.series(clean, generateSVG, generateWEBP, minifyImages, copy));
+gulp.task(`build`, gulp.series(
+    clean,
+    generateSVG,
+    generateWEBP,
+    minifyImages,
+    copy,
+    copyHtml,
+    generateCSS({sourceMap: false}),
+    generateScripts({mode: `production`, sourceMap: false})
+));
