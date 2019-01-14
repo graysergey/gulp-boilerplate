@@ -1,0 +1,14 @@
+// Normalize
+@import "../../node_modules/normalize-scss/sass/_normalize.scss";
+@include normalize();
+
+// Fonts
+@import "fonts";
+
+// Variables
+@import "variables";
+
+// Common styles
+@import "scaffolding";
+
+// Blocks

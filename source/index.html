@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="preload" href="fonts/opensans-bold-webfont.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/opensans-regular-webfont.woff2" as="font" type="font/woff2" crossorigin>
+    <link href="css/style.min.css" rel="stylesheet">
+  </head>
+  <body>
+
+    <!--injecting svg sprite-->
+    <div class="visually-hidden">
+      <include src="dist/img/sprite.svg"></include>
+    </div>
+
+    <section class="gulp">
+      <h1>Gulp boilerplate</h1>
+      <!--using svg sprite-->
+      <svg class="gulp__image" width="27" height="34"><use xlink:href="#gulp"/></svg>
+    </section>
+
+    <script src="js/main.min.js"></script>
+  </body>
+</html>
