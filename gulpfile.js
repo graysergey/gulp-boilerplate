@@ -8,7 +8,7 @@ const {
   copyHtml,
   generateCSS,
   generateScripts
-} = require(`./gulp/index`);
+} = require(`./gulp`);
 
 
 gulp.task(`build`, gulp.series(

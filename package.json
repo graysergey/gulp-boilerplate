@@ -37,7 +37,7 @@
     "webpack-stream": "5.2.1"
   },
   "scripts": {
-    "editorconfig": "editorconfig-cli",
+    "editorconfig": "editorconfig-cli \"source/**/*.{js,html,scss}\"",
     "stylelint": "stylelint \"source/sass/**/*.scss\" --syntax scss",
     "test": "npm run editorconfig && npm run stylelint",
     "build": "gulp build",
