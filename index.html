@@ -17,9 +17,13 @@
     </div>
 
     <section class="gulp">
-      <h1>Gulp boilerplate</h1>
+      <h1 class="gulp__title">Gulp boilerplate</h1>
       <!--using svg sprite-->
-      <svg class="gulp__image" width="159" height="350"><use xlink:href="#gulp"></use></svg>
+      <svg class="gulp__logo" width="159" height="350"><use xlink:href="#gulp"></use></svg>
+      <picture class="gulp__image">
+        <source type="image/webp" srcset="img/node@1x.webp 1x, img/node@2x.webp 2x">
+        <img src="img/node@1x.png" srcset="img/node@2x.png 2x" alt="node logo">
+      </picture>
     </section>
 
     <script src="js/main.min.js"></script>
