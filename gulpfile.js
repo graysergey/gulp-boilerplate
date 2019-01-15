@@ -1,7 +1,7 @@
 const {task, series, parallel} = require(`gulp`);
 const {
   clean,
-  copy,
+  copyAssets,
   generateSVG,
   generateWEBP,
   minifyImages,
@@ -20,7 +20,7 @@ task(`build`, series(
     generateSVG,
     generateWEBP,
     minifyImages(productionOptions),
-    copy,
+    copyAssets,
     copyHtml,
     generateCSS(productionOptions),
     generateScripts(productionOptions)
@@ -34,7 +34,7 @@ task(`start`, series(
     generateSVG,
     generateWEBP,
     minifyImages(devOptions),
-    copy,
+    copyAssets,
     copyHtml,
     generateCSS(devOptions),
     generateScripts(devOptions),
