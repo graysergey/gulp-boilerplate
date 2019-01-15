@@ -32,3 +32,10 @@ node_modules
 
 # Build directory
 dist
+
+# Generated images
+source/img/*.png
+source/img/*.jpg
+source/img/*.jpeg
+source/img/*.webp
+source/img/*.svg

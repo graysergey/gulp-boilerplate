@@ -1,4 +1,4 @@
-const gulp = require(`gulp`);
+const {task, series, parallel} = require(`gulp`);
 const {
   clean,
   copy,
@@ -7,17 +7,36 @@ const {
   minifyImages,
   copyHtml,
   generateCSS,
-  generateScripts
+  generateScripts,
+  Server,
+  watchFiles,
+  cleanImages
 } = require(`./gulp`);
 
-
-gulp.task(`build`, gulp.series(
+const productionOptions = {mode: `production`, sourceMap: false};
+task(`build`, series(
     clean,
+    cleanImages,
     generateSVG,
     generateWEBP,
     minifyImages,
     copy,
     copyHtml,
-    generateCSS({sourceMap: false}),
-    generateScripts({mode: `production`, sourceMap: false})
+    generateCSS(productionOptions),
+    generateScripts(productionOptions)
+));
+
+const server = new Server();
+const devOptions = {mode: `development`, sourceMap: true};
+task(`start`, series(
+    clean,
+    cleanImages,
+    generateSVG,
+    generateWEBP,
+    minifyImages,
+    copy,
+    copyHtml,
+    generateCSS(devOptions),
+    generateScripts(devOptions),
+    parallel(server.init.bind(server), watchFiles(devOptions))
 ));

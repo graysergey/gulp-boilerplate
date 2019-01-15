@@ -6,3 +6,6 @@ exports.minifyImages = require(`./minify-images`);
 exports.copyHtml = require(`./copy-html`);
 exports.generateCSS = require(`./generate-css`);
 exports.generateScripts = require(`./generate-scripts`);
+exports.Server = require(`./server`);
+exports.watchFiles = require(`./watch-files`);
+exports.cleanImages = require(`./clean-images`);

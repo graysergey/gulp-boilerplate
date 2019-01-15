@@ -1,0 +1,35 @@
+.gulp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-top: 100px;
+}
+
+.gulp__title {
+  width: 100%;
+  text-align: center;
+}
+
+.gulp__logo {
+  max-width: 50%;
+  width: 159px;
+  height: 350px;
+  margin: 50px;
+}
+
+.gulp__image {
+  max-width: 50%;
+  width: 295px;
+  height: 181px;
+  margin: 50px;
+}
+
+.gulp__text {
+  width: 100%;
+  text-align: center;
+  font-size: 36px;
+  line-height: 40px;
+  color: dodgerblue;
+  font-weight: 700;
+}
