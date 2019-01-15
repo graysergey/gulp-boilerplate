@@ -12,6 +12,7 @@ const generateScripts = (options) => {
       mode: options.mode,
       output: {filename: `main.min.js`},
       devtool: options.sourceMap && `source-map`,
+      stats: `errors-only`,
       module: {
         rules: [
           {
