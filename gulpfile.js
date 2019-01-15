@@ -5,7 +5,7 @@ const {
   generateSVG,
   generateWEBP,
   minifyImages,
-  copyHtml,
+  generateHtml,
   generateCSS,
   generateScripts,
   Server,
@@ -21,7 +21,7 @@ task(`build`, series(
     generateWEBP,
     minifyImages(productionOptions),
     copyAssets,
-    copyHtml,
+    generateHtml,
     generateCSS(productionOptions),
     generateScripts(productionOptions)
 ));
@@ -35,7 +35,7 @@ task(`start`, series(
     generateWEBP,
     minifyImages(devOptions),
     copyAssets,
-    copyHtml,
+    generateHtml,
     generateCSS(devOptions),
     generateScripts(devOptions),
     parallel(server.init.bind(server), watchFiles(devOptions))

@@ -2,7 +2,7 @@ const {src, dest} = require(`gulp`);
 const posthtml = require(`gulp-posthtml`);
 const include = require(`posthtml-include`);
 
-const copyHtml = () => {
+const generateHtml = () => {
   return src(`source/*.html`)
   .pipe(posthtml([
     include()
@@ -10,4 +10,4 @@ const copyHtml = () => {
   .pipe(dest(`dist`));
 };
 
-module.exports = copyHtml;
+module.exports = generateHtml;
