@@ -1,4 +1,5 @@
-import '@babel/polyfill'; // use if need IE support with ES6
+// import '@babel/polyfill'; // Polyfill for babel
+// import 'picturefill'; // Polyfill for IE <picture> tag
 
 document.addEventListener(`DOMContentLoaded`, () => {
   const indicator = document.createElement(`p`);

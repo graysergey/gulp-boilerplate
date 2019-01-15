@@ -31,6 +31,7 @@
     "gulp-webp": "4.0.0",
     "normalize-scss": "7.0.1",
     "path": "0.12.7",
+    "picturefill": "3.0.3",
     "posthtml-include": "1.2.0",
     "stylelint": "9.9.0",
     "stylelint-config-htmlacademy": "0.1.1",
