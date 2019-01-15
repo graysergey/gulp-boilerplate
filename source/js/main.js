@@ -1,4 +1,4 @@
-// import '@babel/polyfill'; // use if need IE support with ES6
+import '@babel/polyfill'; // use if need IE support with ES6
 
 document.addEventListener(`DOMContentLoaded`, () => {
   const indicator = document.createElement(`p`);
