@@ -1,32 +1,43 @@
 <!doctype html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="preload" href="fonts/opensans-bold-webfont.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="fonts/opensans-regular-webfont.woff2" as="font" type="font/woff2" crossorigin>
-    <link href="css/style.min.css" rel="stylesheet">
-  </head>
-  <body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="preload" href="fonts/opensans-bold-webfont.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/opensans-regular-webfont.woff2" as="font" type="font/woff2" crossorigin>
+  <link href="css/style.min.css" rel="stylesheet">
+</head>
+<body>
 
-    <!--injecting svg sprite-->
-    <div class="visually-hidden">
-      <include src="dist/img/sprite.svg"></include>
-    </div>
+<!--injecting svg sprite-->
+<div class="visually-hidden">
+  <include src="dist/img/sprite.svg"></include>
+</div>
 
-    <section class="gulp">
-      <h1 class="gulp__title">Gulp boilerplate</h1>
-      <!--using svg sprite-->
-      <svg class="gulp__logo" width="159" height="350"><use xlink:href="#gulp"/></svg>
-      <picture class="gulp__image">
-        <source type="image/webp"  srcset="img/node@1x.webp 1x, img/node@2x.webp 2x">
-        <img src="img/node@1x.png" srcset="img/node@2x.png 2x" alt="node logo">
-      </picture>
-    </section>
+<section class="gulp">
+  <h1 class="gulp__title">Gulp boilerplate</h1>
+  <!--using svg sprite-->
+  <svg class="gulp__logo" width="159" height="350">
+    <use xlink:href="#gulp"/>
+  </svg>
+  <picture class="gulp__image">
+    <source type="image/webp" srcset="img/node@1x.webp 1x, img/node@2x.webp 2x">
+    <img src="img/node@1x.png" srcset="img/node@2x.png 2x" alt="node logo">
+  </picture>
+  <!--expression example-->
+  {{ a = 1+2; array = ['foo', 'bar'];`` }}
+  <p class="gulp__expression">{{`Expressions are working! 1+2 = ${a}`}}</p>
+  <!--loop example-->
+  <ul class="gulp__list">
+    <each loop="item, index in array">
+      <li>{{ index }}: {{ item }}</li>
+    </each>
+  </ul>
+</section>
 
-    <script src="js/main.min.js"></script>
-  </body>
+<script src="js/main.min.js"></script>
+</body>
 </html>
