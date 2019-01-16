@@ -1,5 +1,6 @@
 const {task, series, parallel} = require(`gulp`);
 const {
+  Config,
   clean,
   copyAssets,
   generateSVG,
@@ -13,30 +14,30 @@ const {
   cleanImages
 } = require(`./gulp`);
 
-const productionOptions = {mode: `production`, sourceMap: false, optimizeImages: true};
+const {PRODUCTION_OPTIONS, DEVELOPER_OPTIONS} = Config;
+
 task(`build`, series(
     clean,
     cleanImages,
     generateSVG,
     generateWEBP,
-    minifyImages(productionOptions),
+    minifyImages(PRODUCTION_OPTIONS),
     copyAssets,
     generateHtml,
-    generateCSS(productionOptions),
-    generateScripts(productionOptions)
+    generateCSS(PRODUCTION_OPTIONS),
+    generateScripts(PRODUCTION_OPTIONS)
 ));
 
 const server = new Server();
-const devOptions = {mode: `development`, sourceMap: true, optimizeImages: false};
 task(`start`, series(
     clean,
     cleanImages,
     generateSVG,
     generateWEBP,
-    minifyImages(devOptions),
+    minifyImages(DEVELOPER_OPTIONS),
     copyAssets,
     generateHtml,
-    generateCSS(devOptions),
-    generateScripts(devOptions),
-    parallel(server.init.bind(server), watchFiles(devOptions))
+    generateCSS(DEVELOPER_OPTIONS),
+    generateScripts(DEVELOPER_OPTIONS),
+    parallel(server.init.bind(server), watchFiles(DEVELOPER_OPTIONS))
 ));

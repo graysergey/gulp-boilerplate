@@ -9,3 +9,4 @@ exports.generateScripts = require(`./generate-scripts`);
 exports.Server = require(`./server`);
 exports.watchFiles = require(`./watch-files`);
 exports.cleanImages = require(`./clean-images`);
+exports.Config = require(`./config`);
