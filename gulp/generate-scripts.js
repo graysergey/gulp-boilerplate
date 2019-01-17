@@ -2,15 +2,16 @@ const {src, dest} = require(`gulp`);
 const plumber = require(`gulp-plumber`);
 const webpack = require(`webpack-stream`);
 const named = require(`vinyl-named`);
+const {SOURCE, TARGET, ENTRY_SCRIPTS, OUTPUT_SCRIPTS} = require(`./config`);
 
 const generateScripts = (options) => {
   return function _generateScripts() {
-    return src(`source/js/main.js`)
+    return src(`${SOURCE.scripts}/${ENTRY_SCRIPTS}`)
     .pipe(plumber())
     .pipe(named())
     .pipe(webpack({
       mode: options.mode,
-      output: {filename: `main.min.js`},
+      output: {filename: `${OUTPUT_SCRIPTS}`},
       devtool: options.sourceMap && `source-map`,
       stats: `errors-only`,
       module: {
@@ -28,7 +29,7 @@ const generateScripts = (options) => {
         ]
       },
     }))
-    .pipe(dest(`dist/js/`));
+    .pipe(dest(`${TARGET.scripts}`));
   };
 };
 

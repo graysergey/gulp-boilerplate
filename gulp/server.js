@@ -1,4 +1,5 @@
 const browserSync = require(`browser-sync`);
+const {TARGET} = require(`./config`);
 
 class Server {
   constructor() {
@@ -7,23 +8,14 @@ class Server {
 
   init(done) {
     this._server.init({
-      server: `./dist`,
+      server: `${TARGET.root}`,
       notify: false,
       open: true,
       port: 3000,
       ui: false,
-      files: `dist/**/*`
+      files: `${TARGET.root}/**/*`
     });
     done();
-  }
-
-  reload(done) {
-    this._server.reload();
-    done();
-  }
-
-  stream(opts) {
-    this._server.stream(opts);
   }
 }
 

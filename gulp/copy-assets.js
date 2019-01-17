@@ -1,12 +1,13 @@
 const {src, dest} = require(`gulp`);
+const {SOURCE, TARGET} = require(`./config`);
 
 const copyAssets = () => {
   return src([
-    `source/fonts/**/*.{woff,woff2}`,
-    `source/img/*.{jpg,jpeg,png,webp,svg}`,
+    `${SOURCE.fonts}/**/*.{woff,woff2}`,
+    `${SOURCE.images}/*.{jpg,jpeg,png,webp,svg}`,
   ],
   {base: `source/`})
-    .pipe(dest(`dist`));
+    .pipe(dest(`${TARGET.root}`));
 };
 
 module.exports = copyAssets;

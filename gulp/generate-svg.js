@@ -3,9 +3,10 @@ const svgmin = require(`gulp-svgmin`);
 const svgstore = require(`gulp-svgstore`);
 const path = require(`path`);
 const rename = require(`gulp-rename`);
+const {SOURCE} = require(`./config`);
 
 const generateSVG = () => {
-  return src(`source/img/svg-sprite/*.svg`)
+  return src(`${SOURCE.sprite}/*.svg`)
     .pipe(svgmin((file) => {
       const prefix = path.basename(file.relative, path.extname(file.relative));
       return {
@@ -19,7 +20,7 @@ const generateSVG = () => {
     }))
     .pipe(svgstore({inlineSvg: true}))
     .pipe(rename(`sprite.svg`))
-    .pipe(dest(`source/img`));
+    .pipe(dest(`${SOURCE.images}`));
 };
 
 module.exports = generateSVG;

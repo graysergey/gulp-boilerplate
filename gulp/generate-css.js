@@ -8,10 +8,11 @@ const minify = require(`gulp-clean-css`);
 const rename = require(`gulp-rename`);
 const sourcemaps = require(`gulp-sourcemaps`);
 const empty = require(`gulp-empty-pipe`);
+const {SOURCE, TARGET, ENTRY_STYLES, OUTPUT_STYLES} = require(`./config`);
 
 const generateCSS = (options) => {
   return function _generateCSS() {
-    return src(`source/sass/style.scss`)
+    return src(`${SOURCE.styles}/${ENTRY_STYLES}`)
       .pipe(plumber())
       .pipe(sourcemaps.init())
       .pipe(sass())
@@ -28,9 +29,9 @@ const generateCSS = (options) => {
         mqpacker({sort: true})
       ]))
       .pipe(minify())
-      .pipe(rename(`style.min.css`))
+      .pipe(rename(`${OUTPUT_STYLES}`))
       .pipe(options.sourceMap && sourcemaps.write(`.`) || empty())
-      .pipe(dest(`dist/css`));
+      .pipe(dest(`${TARGET.styles}`));
   };
 };
 

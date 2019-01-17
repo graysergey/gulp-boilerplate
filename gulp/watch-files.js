@@ -6,15 +6,16 @@ const copyAssets = require(`./copy-assets`);
 const generateSVG = require(`./generate-svg`);
 const generateWEBP = require(`./generate-webp`);
 const minifyImages = require(`./minify-images`);
+const {SOURCE} = require(`./config`);
 
 const watchFiles = (options) => {
   return function _watchFiles() {
-    watch(`source/sass/**/*.scss`, generateCSS(options));
-    watch(`source/js/**/*.js`, generateScripts(options));
-    watch(`source/**/*.html`, generateHtml);
-    watch(`source/img/svg-sprite/*.svg`, series(generateSVG, copyAssets));
-    watch(`source/img/before-optimize/*.{png,jpg,svg,jpeg}`, series(generateWEBP, minifyImages(options), copyAssets));
-    watch(`source/fonts/**/*.{woff,woff2}`, copyAssets);
+    watch(`${SOURCE.styles}/**/*.scss`, generateCSS(options));
+    watch(`${SOURCE.scripts}/**/*.js`, generateScripts(options));
+    watch(`${SOURCE.root}/**/*.html`, generateHtml);
+    watch(`${SOURCE.sprite}/*.svg`, series(generateSVG, copyAssets));
+    watch(`${SOURCE.rawImages}/*.{png,jpg,svg,jpeg}`, series(generateWEBP, minifyImages(options), copyAssets));
+    watch(`${SOURCE.fonts}/**/*.{woff,woff2}`, copyAssets);
   };
 };
 
